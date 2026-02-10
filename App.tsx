@@ -102,9 +102,18 @@ const App: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const bio = await generateProfessionalBio(profile.name, profile.title);
-      setProfile(prev => ({ ...prev, bio }));
-      setLoading(false);
+      try {
+        const bio = await generateProfessionalBio(profile.name, profile.title);
+        setProfile(prev => ({ ...prev, bio }));
+      } catch (error) {
+        console.error("Failed to generate bio, using fallback.", error);
+        setProfile(prev => ({ 
+            ...prev, 
+            bio: "Builder based in St Vincent & the Grenadines, focused on resilient, income‑ready homes." 
+        }));
+      } finally {
+        setLoading(false);
+      }
     };
     fetchData();
   }, []);
