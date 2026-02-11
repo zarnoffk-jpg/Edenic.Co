@@ -168,6 +168,11 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen flex items-center justify-center p-6 relative overflow-hidden">
       
+      {/* Dynamic Banner - Always Visible */}
+      <div style={{ position: 'fixed', top: 10, left: 10, zIndex: 9999, background: 'yellow', padding: '8px 12px', borderRadius: 8, fontWeight: 'bold' }}>
+        Edenic LIVE
+      </div>
+
       {/* Dynamic Background Orbs */}
       <div className="blob bg-[#00A651] w-[500px] h-[500px] rounded-full top-[-100px] left-[-100px] opacity-[0.15] animate-blob mix-blend-screen"></div>
       <div className="blob bg-[#002855] w-[500px] h-[500px] rounded-full bottom-[-100px] right-[-100px] opacity-[0.3] animate-blob animation-delay-2000 mix-blend-screen"></div>
